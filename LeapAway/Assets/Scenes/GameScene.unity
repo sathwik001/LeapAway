@@ -295,10 +295,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 135127741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88dedcbfc04962a4ea9ef78d44ebf386, type: 3}
+  m_Script: {fileID: 11500000, guid: 06624de8572d868439520f3eb7a770d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacles: {fileID: 4892606036954510540, guid: 604be6e721bfe564ebe403f75e84f61a, type: 3}
+  _obstacles: {fileID: 2811573219513123830, guid: 604be6e721bfe564ebe403f75e84f61a, type: 3}
+  _obstacles2: {fileID: 2592310952692679484, guid: 8cd32f85bb7d8a44ba44c98a5a76380b, type: 3}
 --- !u!1 &376048367
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2186fb2e129fddc41b5d8162a450af1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTouched: 0
 --- !u!50 &578120189
 Rigidbody2D:
   serializedVersion: 4

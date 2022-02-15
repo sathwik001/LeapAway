@@ -5,7 +5,7 @@ public class PlayerJumpMechanics : MonoBehaviour
     private Rigidbody2D rb2D;
     private float _directionForce = 50f;
     private float _jumpForce = 5f;
-    private GameObject _obstacles;
+    public bool isTouched;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class PlayerJumpMechanics : MonoBehaviour
         if(transform.position.y >= 0.5f)
         {
             transform.position = new Vector2(transform.position.x, 0.5f);
+            isTouched = true;
         }
         if(transform.position.x >= 2.56f)
         {
@@ -29,7 +30,6 @@ public class PlayerJumpMechanics : MonoBehaviour
         {
             transform.position = new Vector2(-2.56f, transform.position.y);
         }
-
     }
 
     public void OnLeftButtonClicked()
