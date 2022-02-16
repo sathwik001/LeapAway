@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - RightObsatcle
   - LeftObstacle
+  - Bullet
   layers:
   - Default
   - TransparentFX
