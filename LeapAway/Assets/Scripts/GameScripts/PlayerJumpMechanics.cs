@@ -3,11 +3,9 @@ using UnityEngine;
 public class PlayerJumpMechanics : MonoBehaviour
 {
     private Rigidbody2D rb2D;
-    private float _directionForce = 50f;
-    private float _jumpForce = 5f;
-    private bool isGameOver;
-    [SerializeField]
-    private GameObject _gameOverPanel;
+    public float _directionForce = 50f;
+    public float _jumpForce = 5f;
+    public bool isGameOver;
 
 
     private void Awake()
@@ -20,7 +18,7 @@ public class PlayerJumpMechanics : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         transform.position = new Vector2(0f, 0f);
         isGameOver = false;
-        _gameOverPanel.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -43,11 +41,7 @@ public class PlayerJumpMechanics : MonoBehaviour
         {
             Time.timeScale = 0.25f;
             isGameOver = true;
-        }
-
-        if (isGameOver)
-        {
-            _gameOverPanel.SetActive(true);
+            Destroy(this.gameObject);
         }
     }
 

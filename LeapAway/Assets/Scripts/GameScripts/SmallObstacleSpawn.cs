@@ -6,6 +6,7 @@ public class SmallObstacleSpawn : MonoBehaviour
 {
     [SerializeField]
     private Transform _topObs, _downObs;
+    public float _smallObstacleSpeed = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class SmallObstacleSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.down * 1.5f * Time.deltaTime);
+        transform.Translate(Vector2.down * _smallObstacleSpeed * Time.deltaTime);
 
         if(transform.position.y <= -7.11f)
         {
