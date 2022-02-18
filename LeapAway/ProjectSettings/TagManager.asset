@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
-  - RightObsatcle
-  - LeftObstacle
   - Bullet
+  - Shield
+  - Speed
+  - FreeMove
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Glow
   - 
   - 
   - 

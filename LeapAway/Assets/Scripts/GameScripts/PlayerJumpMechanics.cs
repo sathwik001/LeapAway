@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerJumpMechanics : MonoBehaviour
 {
     private Rigidbody2D rb2D;
-    public float _directionForce = 50f;
+    public float _directionForce = 75f;
     public float _jumpForce = 5f;
     public bool isGameOver;
 
@@ -57,14 +57,5 @@ public class PlayerJumpMechanics : MonoBehaviour
         rb2D.AddForce(new Vector2(_directionForce,0f));
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.tag == "Bullet")
-        {
-            Destroy(this.gameObject);
-            Destroy(other.gameObject);
-            Time.timeScale = 0.25f;
-            isGameOver = true;
-        }
-    }
+
 }

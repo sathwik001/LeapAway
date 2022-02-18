@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SmallObstacleSpawn : MonoBehaviour
@@ -8,19 +6,18 @@ public class SmallObstacleSpawn : MonoBehaviour
     private Transform _topObs, _downObs;
     public float _smallObstacleSpeed = 2f;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         _topObs.position = new Vector2(Random.Range(-0.8f, 1.1f), 8.8f);
         _downObs.position = new Vector2(Random.Range(-0.8f, 1.1f), 7f);
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.down * _smallObstacleSpeed * Time.deltaTime);
 
-        if(transform.position.y <= -7.11f)
+        if(transform.position.y <= -9.11f)
         {
             Destroy(this.gameObject);
         }
