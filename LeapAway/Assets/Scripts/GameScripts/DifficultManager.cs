@@ -8,7 +8,6 @@ public class DifficultManager : MonoBehaviour
     {
         if(_score._scorePoints >= 0f && _score._scorePoints <= 75f)
         {
-
             GameObject.FindObjectOfType<SmallObstacleSpawn>()._smallObstacleSpeed = 2f;
             GameObject.FindObjectOfType<BigObstaclesSpawn>()._bigObstacleSpeed = 2f;
             GameObject.Find("SpawnManager").GetComponent<SpawnManagerr>()._smallObstacleDelay = 3.0f;
@@ -17,7 +16,6 @@ public class DifficultManager : MonoBehaviour
         }
         else if (_score._scorePoints >= 75f && _score._scorePoints <= 150f)
         {
-
             GameObject.FindObjectOfType<SmallObstacleSpawn>()._smallObstacleSpeed = 2.5f;
             GameObject.FindObjectOfType<BigObstaclesSpawn>()._bigObstacleSpeed = 2.5f;
             GameObject.Find("SpawnManager").GetComponent<SpawnManagerr>()._smallObstacleDelay = 2.75f;
@@ -61,7 +59,6 @@ public class DifficultManager : MonoBehaviour
         }
         else if (_score._scorePoints >= 500f)
         {
-
             GameObject.FindObjectOfType<SmallObstacleSpawn>()._smallObstacleSpeed = 4f;
             GameObject.FindObjectOfType<BigObstaclesSpawn>()._bigObstacleSpeed = 4f;
             GameObject.Find("SpawnManager").GetComponent<SpawnManagerr>()._smallObstacleDelay = 1.20f;

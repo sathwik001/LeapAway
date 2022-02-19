@@ -37,7 +37,7 @@ public class PlayerJumpMechanics : MonoBehaviour
             transform.position = new Vector2(-2.56f, transform.position.y);
         }
 
-        if(transform.position.y <= -7.5)
+        if(transform.position.y <= -5.3)
         {
             Time.timeScale = 0.25f;
             isGameOver = true;

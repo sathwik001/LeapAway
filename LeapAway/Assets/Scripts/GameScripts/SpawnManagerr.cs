@@ -16,7 +16,7 @@ public class SpawnManagerr : MonoBehaviour
         StartCoroutine(SmallObstaclesSpawn());
         StartCoroutine(BulletSpawn());
         StartCoroutine(ShieldSpawn());
-        StartCoroutine(SpeedSpawn());
+        StartCoroutine(PlayerBulletSpawn());
         StartCoroutine(FreeMoveSpawn());
     }
 
@@ -63,20 +63,20 @@ public class SpawnManagerr : MonoBehaviour
         }
     }
 
-    IEnumerator SpeedSpawn()
+    IEnumerator PlayerBulletSpawn()
     {
-        yield return new WaitForSeconds(12f);
+        yield return new WaitForSeconds(10f);
         while (true)
         {
-            Vector2 speedposToSpawn = new Vector2(Random.Range(-2.35f, 2.35f), 5.5f);
-            Instantiate(_speedObject, speedposToSpawn, Quaternion.identity);
+            Vector2 playerBulletposToSpawn = new Vector2(Random.Range(-2.35f, 2.35f), 5.5f);
+            Instantiate(_speedObject, playerBulletposToSpawn, Quaternion.identity);
             yield return new WaitForSeconds(_speedSpawnDelay);
         }
     }
 
     IEnumerator FreeMoveSpawn()
     {
-        yield return new WaitForSeconds(14f);
+        yield return new WaitForSeconds(10f);
         while (true)
         {
             Vector2 freeMoveposToSpawn = new Vector2(Random.Range(-2.35f, 2.35f), 5.5f);

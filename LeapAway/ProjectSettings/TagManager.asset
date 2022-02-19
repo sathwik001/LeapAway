@@ -9,6 +9,8 @@ TagManager:
   - Shield
   - Speed
   - FreeMove
+  - PlayerBullets
+  - PlayerLaser
   layers:
   - Default
   - TransparentFX

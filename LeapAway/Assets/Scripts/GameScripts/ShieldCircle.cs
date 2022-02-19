@@ -14,7 +14,6 @@ public class ShieldCircle : MonoBehaviour
         {
             Destroy(other.gameObject);
             gameObject.SetActive(false);
-
         }
     }
 }

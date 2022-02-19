@@ -5,12 +5,8 @@ public class BigObstaclesSpawn : MonoBehaviour
     [SerializeField]
     private Transform _rightObs, _leftObs;
     public float _bigObstacleSpeed = 2f;
+    //private Vector2 _screenBounds;
     //public ScoreIncrement _score;
-
-    private void Awake()
-    {
-        //_score = GameObject.Find("ScoreIncrement").GetComponent<ScoreIncrement>();
-    }
 
     void Start()
     {
@@ -23,13 +19,14 @@ public class BigObstaclesSpawn : MonoBehaviour
     {
         transform.Translate(Vector2.down * _bigObstacleSpeed * Time.deltaTime);
 
-        if(transform.position.y <= -7.25f)
+        if (transform.position.y <= -7.25f)
         {
             Destroy(this.gameObject);
         }
-        //if (_score._scorePoints >= 0)
+        //_screenBounds = Camera.main.WorldToScreenPoint(transform.position);
+        //if(_screenBounds.y * 5  < 0)
         //{
-        //    _bigObstacleSpeed = 3f;
+        //    Destroy(this.gameObject);
         //}
     }
 }
