@@ -31,6 +31,7 @@ public class PlayerCollisions : MonoBehaviour
 
         if(other.tag == "Shield")
         {
+            FindObjectOfType<AudioMaanger>().Play("CollectSound");
             _shieldCount = 7f;
             _shieldSlider.value = _shieldCount;
             Destroy(other.gameObject);
@@ -43,7 +44,8 @@ public class PlayerCollisions : MonoBehaviour
 
         if(other.tag == "PlayerBullets")
         {
-            _laserShootCount = 7f;
+            FindObjectOfType<AudioMaanger>().Play("CollectSound");
+            _laserShootCount = 4f;
             _bulletSpawnerSlider.value = _laserShootCount;
             Destroy(other.gameObject);
             isShooting = true;
@@ -53,6 +55,7 @@ public class PlayerCollisions : MonoBehaviour
 
         if(other.tag == "FreeMove")
         {
+            FindObjectOfType<AudioMaanger>().Play("CollectSound");
             _freeMoveCount = 7f;
             _freeMoveSlider.value = _freeMoveCount;
             Destroy(other.gameObject);
@@ -69,6 +72,7 @@ public class PlayerCollisions : MonoBehaviour
         while (isShooting)
         {
             Instantiate(_playerBullet, _player.transform.position, Quaternion.identity);
+            FindObjectOfType<AudioMaanger>().Play("PlayerShoot");
             _laserShootCount -= 0.15f;
             _bulletSpawnerSlider.value = _laserShootCount;
             yield return new WaitForSeconds(0.15f);
@@ -78,6 +82,10 @@ public class PlayerCollisions : MonoBehaviour
     {
         while (isfreeMoveActive)
         {
+            FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
+            FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
+            FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
+            FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
             _freeMoveCount -= 0.15f;
             _freeMoveSlider.value = _freeMoveCount;
             yield return new WaitForSeconds(0.15f);
@@ -95,7 +103,7 @@ public class PlayerCollisions : MonoBehaviour
 
     IEnumerator IsShootingOff()
     {
-        yield return new WaitForSeconds(7.0f);
+        yield return new WaitForSeconds(4.0f);
         isShooting = false;
     }
 
@@ -103,6 +111,8 @@ public class PlayerCollisions : MonoBehaviour
     {
         yield return new WaitForSeconds(7.0f);
         _isShieldActive = false;
+        _shieldCount = 0f;
+        _shieldSlider.value = _shieldCount;
         _shield.SetActive(false);
     }
 
@@ -110,6 +120,10 @@ public class PlayerCollisions : MonoBehaviour
     {
         yield return new WaitForSeconds(7.0f);
         isfreeMoveActive = false;
+        FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
+        FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
+        FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
+        FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
         this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
     }
 

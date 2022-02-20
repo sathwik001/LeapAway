@@ -24,9 +24,9 @@ public class PlayerJumpMechanics : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(transform.position.y >= 0.5f)
+        if(transform.position.y >= 4.7f)
         {
-            transform.position = new Vector2(transform.position.x, 0.5f);
+            transform.position = new Vector2(transform.position.x, 4.7f);
         }
         if(transform.position.x >= 2.56f)
         {
@@ -49,12 +49,14 @@ public class PlayerJumpMechanics : MonoBehaviour
     {
         rb2D.velocity = new Vector2(0.0f, _jumpForce);
         rb2D.AddForce(new Vector2(-_directionForce, 0f));
+        FindObjectOfType<AudioMaanger>().Play("PlayerJump");
     }
 
     public void OnRightButtonClicked()
     {
         rb2D.velocity = new Vector2(0.0f, _jumpForce);
         rb2D.AddForce(new Vector2(_directionForce,0f));
+        FindObjectOfType<AudioMaanger>().Play("PlayerJump");
     }
 
 

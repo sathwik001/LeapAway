@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShieldCircle : MonoBehaviour
 {
     public GameObject _player;
+    public Slider _slider;
 
     private void Update()
     {
@@ -12,6 +14,7 @@ public class ShieldCircle : MonoBehaviour
     {
         if(other.tag == "Bullet")
         {
+            _slider.value = 0;
             Destroy(other.gameObject);
             gameObject.SetActive(false);
         }

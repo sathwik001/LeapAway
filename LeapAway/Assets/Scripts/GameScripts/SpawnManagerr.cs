@@ -54,7 +54,7 @@ public class SpawnManagerr : MonoBehaviour
 
     IEnumerator ShieldSpawn()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(Random.Range(10,15));
         while (true)
         {
             Vector2 shieldposToSpawn = new Vector2(Random.Range(-2.25f, 2.25f), 5.5f);
@@ -65,7 +65,7 @@ public class SpawnManagerr : MonoBehaviour
 
     IEnumerator PlayerBulletSpawn()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(Random.Range(15, 20));
         while (true)
         {
             Vector2 playerBulletposToSpawn = new Vector2(Random.Range(-2.35f, 2.35f), 5.5f);
@@ -76,7 +76,7 @@ public class SpawnManagerr : MonoBehaviour
 
     IEnumerator FreeMoveSpawn()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(Random.Range(25, 30));
         while (true)
         {
             Vector2 freeMoveposToSpawn = new Vector2(Random.Range(-2.35f, 2.35f), 5.5f);

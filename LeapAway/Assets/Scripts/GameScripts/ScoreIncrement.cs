@@ -11,6 +11,7 @@ public class ScoreIncrement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<AudioMaanger>().Play("BGM");
         _scorePoints = 0;
         _scoreText.text = "Score : " + _scorePoints;
     }
