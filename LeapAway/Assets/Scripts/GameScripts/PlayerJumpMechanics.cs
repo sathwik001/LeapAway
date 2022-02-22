@@ -1,5 +1,6 @@
 using UnityEngine;
-
+using DG.Tweening;
+using System.Collections;
 public class PlayerJumpMechanics : MonoBehaviour
 {
     private Rigidbody2D rb2D;
@@ -41,12 +42,13 @@ public class PlayerJumpMechanics : MonoBehaviour
         {
             Time.timeScale = 0.25f;
             isGameOver = true;
-            Destroy(this.gameObject);
         }
     }
 
     public void OnLeftButtonClicked()
     {
+        transform.DOPunchScale(new Vector3(0.05f, 0.05f, 0.05f), 0.1f);
+        StartCoroutine(PlayerScaleBack());
         rb2D.velocity = new Vector2(0.0f, _jumpForce);
         rb2D.AddForce(new Vector2(-_directionForce, 0f));
         FindObjectOfType<AudioMaanger>().Play("PlayerJump");
@@ -54,10 +56,19 @@ public class PlayerJumpMechanics : MonoBehaviour
 
     public void OnRightButtonClicked()
     {
+        transform.DOPunchScale(new Vector3(0.05f, 0.05f, 0.05f), 0.1f);
+        StartCoroutine(PlayerScaleBack());
         rb2D.velocity = new Vector2(0.0f, _jumpForce);
         rb2D.AddForce(new Vector2(_directionForce,0f));
         FindObjectOfType<AudioMaanger>().Play("PlayerJump");
     }
 
-
+    IEnumerator PlayerScaleBack()
+    {
+        while (true)
+        {
+            transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
+            yield return new WaitForSeconds(10f);
+        }
+    }
 }

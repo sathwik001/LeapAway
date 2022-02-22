@@ -9,11 +9,13 @@ public class GameOver : MonoBehaviour
     public ScoreIncrement _score;
     [SerializeField]
     private GameObject _gameOverPanel;
+    [SerializeField]
+    private ParticleSystem _playerParticles;
 
     private void Start()
     {
+        _playerParticles.Stop();
         _gameOverPanel.SetActive(false);
-        
     }
 
     // Update is called once per frame
@@ -23,6 +25,19 @@ public class GameOver : MonoBehaviour
         {
             _gameOverPanel.SetActive(true);
             _score._speed = 0f;
+            StartCoroutine(BreakPlayer());
+            _player.isGameOver = false;
+            _playerdead.isGameOver = false;
         }
+    }
+
+    IEnumerator BreakPlayer()
+    {
+        _playerParticles.Play();
+
+        _player.GetComponent<SpriteRenderer>().enabled = false;
+        _player.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(_playerParticles.main.startLifetime.constantMax);
+        Destroy(_player.gameObject);
     }
 }
