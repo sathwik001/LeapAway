@@ -81,10 +81,11 @@ public class PlayerCollisions : MonoBehaviour
     {
         while (isfreeMoveActive)
         {
-            FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
-            FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
-            FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
-            FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
+            //FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
+            //FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
+            //FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
+            //FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 126);
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color32(0, 0, 0, 126);
             _freeMoveCount -= 0.15f;
             _freeMoveSlider.value = _freeMoveCount;
             yield return new WaitForSeconds(0.15f);
@@ -121,10 +122,11 @@ public class PlayerCollisions : MonoBehaviour
         isfreeMoveActive = false;
         _freeMoveCount = 0f;
         _freeMoveSlider.value = _freeMoveCount;
-        FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
-        FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
-        FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
-        FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color32(0, 0, 0, 255);
+        //FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
+        //FindObjectOfType<SmallObstacleSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
+        //FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
+        //FindObjectOfType<BigObstaclesSpawn>().transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
         this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
     }
 
